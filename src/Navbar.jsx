@@ -27,33 +27,31 @@ const Navbar = () => {
   }
 
   return (
-    <div>
-      <Menu fixed="top">
-        <Container>
-          <Menu.Item>
-            <Image size="mini" src="//logo.clearbit.com/percona.com" />
-            <Link to="/" style={{ marginLeft: '1em' }}>Percona Portal</Link>
+    <Menu fixed="top">
+      <Container>
+        <Menu.Item>
+          <Image size="mini" src="//logo.clearbit.com/percona.com" />
+          <Link to="/" style={{ marginLeft: '1em' }}>Percona Portal</Link>
+        </Menu.Item>
+        {authState.isAuthenticated && (
+        <>
+          <Menu.Item id="messages-button">
+            <Icon name="mail outline" />
+            <Link to="/messages">Messages</Link>
           </Menu.Item>
-          {authState.isAuthenticated && (
-          <>
-            <Menu.Item id="messages-button">
-              <Icon name="mail outline" />
-              <Link to="/messages">Messages</Link>
-            </Menu.Item>
-            <Menu.Item id="profile-button">
-              <Icon name="user outline" />
-              <Link to="/profile">Profile</Link>
-            </Menu.Item>
-            <Menu.Item id="logout-button" onClick={logout}>
-              <Icon name="sign-out" />
-              Logout
-            </Menu.Item>
-          </>
-          )}
-          {!authState.isAuthenticated && <Menu.Item onClick={login}>Login</Menu.Item>}
-        </Container>
-      </Menu>
-    </div>
+          <Menu.Item id="profile-button">
+            <Icon name="user outline" />
+            <Link to="/profile">Profile</Link>
+          </Menu.Item>
+          <Menu.Item id="logout-button" onClick={logout}>
+            <Icon name="sign-out" />
+            Logout
+          </Menu.Item>
+        </>
+        )}
+        {!authState.isAuthenticated && <Menu.Item onClick={login}>Login</Menu.Item>}
+      </Container>
+    </Menu>
   );
 };
 

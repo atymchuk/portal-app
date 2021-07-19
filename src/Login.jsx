@@ -33,6 +33,7 @@ const Login = () => {
        * we derive it from the given issuer for convenience.
        */
       features: {
+        registration: true,
         rememberMe: true,
         router: true,
       },
