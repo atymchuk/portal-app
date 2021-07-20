@@ -19,8 +19,8 @@ const Navbar = () => {
   const history = useHistory();
   const { authState, oktaAuth } = useOktaAuth();
 
-  const login = async () => history.push('/login');
-  const logout = async () => oktaAuth.signOut();
+  const login = () => history.push('/login');
+  const logout = () => oktaAuth.signOut();
 
   if (!authState) {
     return null;
